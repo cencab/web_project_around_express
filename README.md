@@ -1,19 +1,19 @@
 # Tripleten web_project_around_express
 
-## Descripción del Proyecto y Funcionalidad
+## 1. Descripción del Proyecto y Funcionalidad
 
-Este proyecto representa la primera etapa en el desarrollo del backend para la aplicación web "Alrededor de los EE. UU.". El objetivo principal es construir un servidor local utilizando Express.js que actúe como una API para servir datos en formato JSON a la aplicación frontend.
+Esta es la API RESTful para la aplicación "Alrededor de los EE. UU.". El proyecto establece el backend completo de la aplicación, permitiendo la interacción con una base de datos real.
 
-En esta fase de desarrollo, el servidor maneja el enrutamiento básico simulando una base de datos mediante la lectura de archivos físicos. Las funcionalidades principales incluyen:
+**Funcionalidades principales:**
 
-- **Enrutamiento de Colecciones:** Rutas base `/users` y `/cards` que devuelven el conjunto completo de datos.
-- **Enrutamiento Dinámico:** Búsqueda de usuarios específicos mediante parámetros de URL (`/users/:id`).
-- **Manejo de Errores:** Respuestas estructuradas con códigos de estado HTTP correspondientes (404 para recursos inexistentes y 500 para errores internos).
-- **Lectura Asíncrona:** Integración de los módulos `fs` y `path` para una lectura segura de los archivos de datos JSON independientemente del sistema operativo.
+- **Gestión de Usuarios:** Creación de usuarios, obtención de perfiles y actualización de información personal y avatar (manejando rutas GET, POST y PATCH).
+- **Gestión de Tarjetas:** Creación y eliminación de tarjetas de lugares, vinculadas automáticamente al usuario creador (rutas GET, POST y DELETE).
+- **Interactividad:** Sistema de "Me gusta" (Likes) para las tarjetas, permitiendo a los usuarios dar o quitar un like a una publicación específica (rutas PUT y DELETE).
+- **Seguridad y Validación:** Manejo centralizado de errores (400, 404, 500) y validación estricta de esquemas de datos y URLs utilizando Expresiones Regulares (Regex).
 
-## Tecnologías y Técnicas Utilizadas
+## 2. Tecnologías y Técnicas Utilizadas
 
-- **Node.js**: Entorno de ejecución para la lógica del servidor.
-- **Express.js**: Framework para la creación del servidor y arquitectura de enrutamiento modular (`express.Router()`).
-- **ESLint**: Herramienta de linting configurada estrictamente con la guía de estilo de **Airbnb** para asegurar la calidad, legibilidad y consistencia del código.
-- **Nodemon**: Dependencia de desarrollo para habilitar el _hot reload_ y agilizar las pruebas.
+- **Node.js y Express.js:** Para la creación del servidor y la estructuración del enrutamiento.
+- **MongoDB y Mongoose:** Como base de datos NoSQL y ODM (Object Data Modeling) para definir esquemas estrictos y realizar consultas eficientes mediante métodos como `.findByIdAndUpdate()`, `.orFail()` y operadores como `$addToSet` y `$pull`.
+- **Arquitectura de Software:** Código modularizado separando claramente las responsabilidades en `routes`, `controllers` y `models`.
+- **ESLint:** Configuración de reglas `airbnb-base` para mantener un estilo de código limpio y estandarizado.
